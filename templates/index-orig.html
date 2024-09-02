@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Facial Expression Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-time Facial Expression Recognition</h1>
+        <img id="videoElement" src="{{ url_for('video_feed') }}" />
+        <button type="button">Click Me!</button>
+
+        <script>
+            function runPythonScript() {
+              // Get the path to the Python script.
+              var pythonScriptPath = "c:\Users\srini\Downloads\test.py";
+              // Run the Python script.
+              subprocess.run(["python", pythonScriptPath]);
+            }
+          </script>
+          <button onclick="runPythonScript()">Run Python Script</button>
+    </div>
+</body>
+</html>

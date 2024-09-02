@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Facial Expression Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Real-time Facial Expression Recognition</h1>
+        <img id="videoElement" src="{{ url_for('video_feed') }}" />
+        <button type="button" id="runScriptBtn">Run Python Script</button>
+        <div id="script-output"></div>
+    </div>
+
+    <script>
+        document.getElementById('runScriptBtn').addEventListener('click', function() {
+            $.post('../emotion-recognition-python-scikit-learn-mediapipe-main/app.py', function() {
+                $('#script-output').html('<pre>' + data.output + '</pre><pre>' + data.error + '</pre>');
+            });
+        });
+    </script>
+</body>
+</html>
